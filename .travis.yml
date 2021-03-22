@@ -11,6 +11,7 @@ os:
 before_install:
     - go get github.com/mattn/goveralls
     - REPO_NAME=$(basename $PWD)
+    - echo $PWD
     - GITHUB_PATH=$(dirname $(dirname $PWD))
     - SYMANTEC_PROJECT_DIR=${GITHUB_PATH}/Symantec/${REPO_NAME}
     - mkdir -p ${SYMANTEC_PROJECT_DIR}
@@ -22,5 +23,4 @@ install: make get-deps
 
 script:
     - go test -v -covermode=count -coverprofile=coverage.out ./...
-    - $HOME/gopath/bin/goveralls -coverprofile=coverage.out -service=travis-ci
     - make all test
