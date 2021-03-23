@@ -13,7 +13,9 @@ before_install:
     - REPO_NAME=$(basename $PWD)
     - echo $PWD
     - GITHUB_PATH=$(dirname $(dirname $PWD))
+    - echo $GITHUB_PATH
     - SYMANTEC_PROJECT_DIR=${GITHUB_PATH}/sidgod/${REPO_NAME}
+    - echo $SYMANTEC_PROJECT_DIR
     - mkdir -p ${SYMANTEC_PROJECT_DIR}
     - rsync -az ${TRAVIS_BUILD_DIR}/ ${SYMANTEC_PROJECT_DIR}/
     - export TRAVIS_BUILD_DIR=${SYMANTEC_PROJECT_DIR}
