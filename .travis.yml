@@ -24,5 +24,4 @@ before_install:
 install: make get-deps
 
 script:
-    - go test -v -covermode=count -coverprofile=coverage.out ./...
     - make all test
